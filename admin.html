@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    REAL-ALPHA GEN SHOP - Admin
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="header">
+
+    <div class="top-header">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+
+        <span class="logo-box">
+          RA
+        </span>
+
+        <span>
+          REAL-ALPHA
+          <strong>GEN SHOP</strong>
+        </span>
+
+      </a>
+
+
+      <div class="header-actions">
+
+        <a href="index.html">
+          🛍 Store
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="section">
+
+
+    <!-- ================= LOGIN ================= -->
+
+    <div
+      id="loginBox"
+      class="modal-content"
+      style="
+        margin:60px auto;
+        max-width:430px;
+      "
+    >
+
+      <p
+        class="small-title"
+        style="color:#f68b1e;"
+      >
+        ADMINISTRATOR
+      </p>
+
+
+      <h1>
+        Admin Login
+      </h1>
+
+
+      <p>
+        Login to manage REAL-ALPHA GEN SHOP.
+      </p>
+
+
+      <form id="loginForm">
+
+        <label>
+          Admin Email
+        </label>
+
+        <input
+          id="adminEmail"
+          type="email"
+          placeholder="Admin email"
+          required
+          style="
+            width:100%;
+            padding:12px;
+            margin:7px 0 14px;
+            border:1px solid #ccc;
+            border-radius:4px;
+          "
+        >
+
+
+        <label>
+          Password
+        </label>
+
+        <input
+          id="adminPassword"
+          type="password"
+          placeholder="Password"
+          required
+          style="
+            width:100%;
+            padding:12px;
+            margin:7px 0 14px;
+            border:1px solid #ccc;
+            border-radius:4px;
+          "
+        >
+
+
+        <button
+          type="submit"
+          class="shop-button"
+          style="
+            border:0;
+            cursor:pointer;
+            width:100%;
+          "
+        >
+          LOGIN
+        </button>
+
+
+        <p id="loginMessage"></p>
+
+      </form>
+
+    </div>
+
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <div
+      id="dashboard"
+      class="hidden"
+    >
+
+
+      <div class="section-heading">
+
+        <div>
+
+          <p
+            style="
+              color:#f68b1e;
+              font-weight:bold;
+              margin-bottom:5px;
+            "
+          >
+            REAL-ALPHA GEN SHOP
+          </p>
+
+          <h1>
+            Admin Dashboard
+          </h1>
+
+        </div>
+
+
+        <button
+          id="logoutButton"
+          class="shop-button"
+          style="
+            border:0;
+            cursor:pointer;
+          "
+        >
+          LOG OUT
+        </button>
+
+      </div>
+
+
+
+      <!-- ================= STATISTICS ================= -->
+
+      <div class="category-grid">
+
+        <div class="order-card">
+
+          <div>
+
+            <strong>
+              Total Orders
+            </strong>
+
+            <p id="totalOrders">
+              0
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="order-card">
+
+          <div>
+
+            <strong>
+              Paid / Processed
+            </strong>
+
+            <p id="paidOrders">
+              0
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="order-card">
+
+          <div>
+
+            <strong>
+              Order Value
+            </strong>
+
+            <p id="totalSales">
+              KSh 0
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= CUSTOMER ORDERS ================= -->
+
+      <section
+        class="section"
+        style="
+          padding-left:0;
+          padding-right:0;
+        "
+      >
+
+        <div class="section-heading">
+
+          <h2>
+            Customer Orders
+          </h2>
+
+        </div>
+
+
+        <div id="adminOrders">
+
+          <p>
+            No customer orders yet.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= ADD PRODUCT ================= -->
+
+      <section
+        class="section"
+        style="
+          padding-left:0;
+          padding-right:0;
+        "
+      >
+
+        <div class="section-heading">
+
+          <h2>
+            Add New Product
+          </h2>
+
+        </div>
+
+
+        <form
+          id="productForm"
+          style="
+            background:white;
+            padding:20px;
+            border-radius:6px;
+            display:grid;
+            gap:12px;
+          "
+        >
+
+
+          <label>
+            Product Name
+          </label>
+
+          <input
+            name="name"
+            type="text"
+            placeholder="Example: Samsung Galaxy"
+            required
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+
+          <label>
+            Price
+          </label>
+
+          <input
+            name="price"
+            type="number"
+            placeholder="Example: 25000"
+            required
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+
+          <label>
+            Old Price
+          </label>
+
+          <input
+            name="oldPrice"
+            type="number"
+            placeholder="Optional"
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+
+          <label>
+            Product Description
+          </label>
+
+          <input
+            name="description"
+            type="text"
+            placeholder="Example: 8GB RAM • 128GB"
+            required
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+
+          <label>
+            Category
+          </label>
+
+          <select
+            name="category"
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+            <option value="phone">
+              Phone
+            </option>
+
+            <option value="laptop">
+              Laptop
+            </option>
+
+            <option value="accessory">
+              Accessory
+            </option>
+
+          </select>
+
+
+          <label>
+            Product Image URL
+          </label>
+
+          <input
+            name="image"
+            type="url"
+            placeholder="https://example.com/product.jpg"
+            style="
+              padding:12px;
+              border:1px solid #ccc;
+              border-radius:4px;
+            "
+          >
+
+
+          <label>
+
+            <input
+              type="checkbox"
+              name="deal"
+            >
+
+            Show as Deal
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="shop-button"
+            style="
+              border:0;
+              cursor:pointer;
+            "
+          >
+            ADD PRODUCT
+          </button>
+
+        </form>
+
+      </section>
+
+
+
+      <!-- ================= CATALOGUE ================= -->
+
+      <section
+        class="section"
+        style="
+          padding-left:0;
+          padding-right:0;
+        "
+      >
+
+        <div class="section-heading">
+
+          <h2>
+            Shop Catalogue
+          </h2>
+
+        </div>
+
+
+        <div id="adminProducts">
+
+          <p>
+            Loading products...
+          </p>
+
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </main>
+
+
+  <!-- ================= ADMIN JAVASCRIPT ================= -->
+
+  <script src="app.js"></script>
+
+  <script src="admin.js"></script>
+
+
+</body>
+
+</html>
