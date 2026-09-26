@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>REAL-ALPHA GEN SHOP</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="header">
+
+    <div class="top-header">
+
+      <a href="index.html" class="logo">
+        <span class="logo-box">RA</span>
+        <span>
+          REAL-ALPHA
+          <strong>GEN SHOP</strong>
+        </span>
+      </a>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="search"
+          placeholder="Search products, brands and categories..."
+        >
+
+        <button onclick="searchProducts()">🔍</button>
+
+      </div>
+
+      <div class="header-actions">
+
+        <a href="#orders">Orders</a>
+
+        <a href="admin.html">Admin</a>
+
+        <button id="cartButton">
+          🛒 Cart
+          <span id="cartCount">0</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="navigation">
+
+      <a href="#home">Home</a>
+
+      <a href="#catalogue">All Categories</a>
+
+      <a href="#catalogue" onclick="filterCategory('phone')">
+        📱 Phones
+      </a>
+
+      <a href="#catalogue" onclick="filterCategory('laptop')">
+        💻 Laptops
+      </a>
+
+      <a href="#catalogue" onclick="filterCategory('accessory')">
+        🎧 Accessories
+      </a>
+
+      <a href="#deals">🔥 Deals</a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main id="home">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <p class="small-title">
+          WELCOME TO REAL-ALPHA GEN SHOP
+        </p>
+
+        <h1>
+          Everything you need.
+          <br>
+          Delivered.
+        </h1>
+
+        <p>
+          Shop smartphones, laptops, computers and
+          accessories at great prices.
+        </p>
+
+        <a href="#catalogue" class="shop-button">
+          SHOP NOW
+        </a>
+
+      </div>
+
+
+      <div class="hero-products">
+
+        <div class="hero-laptop">
+          💻
+        </div>
+
+        <div class="hero-phone">
+          📱
+        </div>
+
+        <div class="hero-headphones">
+          🎧
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <h2>
+          Shop By Category
+        </h2>
+
+        <a href="#catalogue">
+          View All →
+        </a>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <button onclick="filterCategory('phone')">
+
+          <span class="category-icon">
+            📱
+          </span>
+
+          <strong>
+            Phones
+          </strong>
+
+          <small>
+            Smartphones
+          </small>
+
+        </button>
+
+
+        <button onclick="filterCategory('laptop')">
+
+          <span class="category-icon">
+            💻
+          </span>
+
+          <strong>
+            Laptops
+          </strong>
+
+          <small>
+            Computers
+          </small>
+
+        </button>
+
+
+        <button onclick="filterCategory('accessory')">
+
+          <span class="category-icon">
+            🎧
+          </span>
+
+          <strong>
+            Accessories
+          </strong>
+
+          <small>
+            Computer & Phone Accessories
+          </small>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= DEALS ================= -->
+
+    <section
+      class="section deals-section"
+      id="deals"
+    >
+
+      <div class="section-heading">
+
+        <h2>
+          🔥 Deals of the Day
+        </h2>
+
+        <a href="#catalogue">
+          See All →
+        </a>
+
+      </div>
+
+
+      <div
+        id="dealsProducts"
+        class="products-grid"
+      >
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= CATALOGUE ================= -->
+
+    <section
+      class="section"
+      id="catalogue"
+    >
+
+      <div class="section-heading catalogue-heading">
+
+        <h2>
+          Popular Products
+        </h2>
+
+
+        <div class="filters">
+
+          <select id="categoryFilter">
+
+            <option value="all">
+              All Products
+            </option>
+
+            <option value="phone">
+              Phones
+            </option>
+
+            <option value="laptop">
+              Laptops
+            </option>
+
+            <option value="accessory">
+              Accessories
+            </option>
+
+          </select>
+
+
+          <select id="sortProducts">
+
+            <option value="featured">
+              Featured
+            </option>
+
+            <option value="low">
+              Price: Low to High
+            </option>
+
+            <option value="high">
+              Price: High to Low
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="products"
+        class="products-grid"
+      >
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================= ORDERS ================= -->
+
+    <section
+      class="section orders-section"
+      id="orders"
+    >
+
+      <div class="section-heading">
+
+        <h2>
+          My Orders
+        </h2>
+
+      </div>
+
+
+      <div id="ordersList">
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ================= CART ================= -->
+
+  <aside
+    id="cartPanel"
+    class="cart-panel"
+  >
+
+    <div class="cart-header">
+
+      <h2>
+        🛒 My Cart
+      </h2>
+
+      <button id="closeCart">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="cartItems"
+      class="cart-items"
+    >
+
+    </div>
+
+
+    <div class="cart-summary">
+
+      <div class="subtotal">
+
+        <span>
+          Subtotal
+        </span>
+
+        <strong id="cartTotal">
+          KSh 0
+        </strong>
+
+      </div>
+
+
+      <p>
+        Delivery fee will be confirmed at checkout.
+      </p>
+
+
+      <button
+        id="checkoutButton"
+        class="checkout-button"
+      >
+        CHECKOUT
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <div
+    id="overlay"
+    class="overlay"
+  ></div>
+
+
+
+  <!-- ================= CHECKOUT ================= -->
+
+  <div
+    id="checkoutModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <button
+        id="closeCheckout"
+        class="close-modal"
+      >
+        ×
+      </button>
+
+
+      <h2>
+        Checkout
+      </h2>
+
+
+      <div
+        id="checkoutSummary"
+        class="checkout-summary"
+      >
+
+      </div>
+
+
+      <form id="checkoutForm">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your full name"
+          required
+        >
+
+
+        <label>
+          Phone Number
+        </label>
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="07XXXXXXXX"
+          required
+        >
+
+
+        <label>
+          Email Address
+        </label>
+
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+        >
+
+
+        <label>
+          Delivery Location
+        </label>
+
+        <textarea
+          name="location"
+          placeholder="Enter your delivery location"
+          required
+        ></textarea>
+
+
+        <label>
+          Payment Method
+        </label>
+
+        <select
+          name="payment"
+          id="paymentMethod"
+          required
+        >
+
+          <option value="">
+            Select payment method
+          </option>
+
+          <option value="Pochi la Biashara">
+            M-Pesa — Pochi la Biashara
+          </option>
+
+          <option value="Card">
+            Card
+          </option>
+
+          <option value="Pay on delivery">
+            Pay on Delivery
+          </option>
+
+        </select>
+
+
+        <!-- POCHI PAYMENT -->
+
+        <div
+          id="pochiInformation"
+          class="payment-information hidden"
+        >
+
+          <h3>
+            M-Pesa Payment
+          </h3>
+
+          <p>
+            Send your payment through
+            <strong>Pochi la Biashara</strong>
+          </p>
+
+          <div class="mpesa-number">
+            0118078137
+          </div>
+
+          <p>
+            After making the payment,
+            confirm below.
+          </p>
+
+        </div>
+
+
+        <label
+          id="paymentConfirmation"
+          class="payment-confirmation hidden"
+        >
+
+          <input
+            type="checkbox"
+            name="paidConfirm"
+          >
+
+          I have made the payment
+
+        </label>
+
+
+        <button
+          type="submit"
+          class="place-order-button"
+        >
+          PLACE ORDER
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= TOAST ================= -->
+
+  <div
+    id="toast"
+    class="toast"
+  >
+    Added to cart
+  </div>
+
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script src="app.js"></script>
+
+</body>
+</html>
